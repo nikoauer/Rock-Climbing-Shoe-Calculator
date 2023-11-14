@@ -1,6 +1,6 @@
-const { Schema, model } = require('mongoose');
+const mongoose = require('mongoose');
 
-const shoeSchema = new Schema(
+const shoeSchema = new mongoose.Schema(
     {
         name: String,
         model: String,
