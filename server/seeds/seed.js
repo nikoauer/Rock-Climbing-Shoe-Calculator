@@ -1,6 +1,6 @@
 const connection = require('../config/connection');
 const {Shoe} = require('../models/index')
-const shoeData = require('./shoeData.json');
+const shoeData = require('./JSON format shoe data.json');
 
 connection.once('open', async () => {
   try {

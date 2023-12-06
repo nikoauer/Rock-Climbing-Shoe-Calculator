@@ -4,14 +4,13 @@ module.exports = {
   async getShoes(req, res) {
     try {
       //retrieve req data
-      const {soleCm, toeBox, width} = req.body;
+      const {soleCm, toeBox, Width} = req.body;
 
       //add req body data into a variable
-      const searchCriteria = { soleCm, toeBox, width };
+      const searchCriteria = { soleCm, toeBox, Width };
 
       // delete any undefined properties in the req data 
       Object.keys(searchCriteria).forEach(key => searchCriteria[key] === undefined && delete searchCriteria[key]);
-
 
       const foundShoes = await Shoe.findOne(searchCriteria);
       if (foundShoes) {

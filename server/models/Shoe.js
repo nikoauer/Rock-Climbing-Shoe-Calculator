@@ -2,16 +2,16 @@ const mongoose = require('mongoose');
 
 const shoeSchema = new mongoose.Schema(
     {
-        name: String,
-        model: String,
-        usMens: Number,
-        usWomens: Number,
-        ukSize: Number,
-        euSize: Number,
+        Name: String,
+        Model: String,
+        USMens: Number,
+        USWomens: Number,
+        UKSize: Number,
+        EUSize: Number,
         boxCm: Number,
         soleCm: Number,
         toeBox: String,
-        width: String,
+        Width: String,
         inStock: Boolean,
         imageUrl: String,
         productUrl: String, 
