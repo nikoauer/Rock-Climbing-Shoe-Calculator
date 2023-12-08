@@ -1,20 +1,15 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 export default function ShoeSearch () {
     const [footData, setFootData] = useState({
         leftFoot: "",
-        rightFoot: ""
-    })
-
-    const [shoeData, setShoeData] = useState({
+        rightFoot: "",
         soleCM: ""
     })
-
-
     const handleChange = (event) => {
         const { name, value } = event.target;
-        setFootData((prevFootData) => ({
-          ...prevFootData,
+        setFootData((pastFootData) => ({
+          ...pastFootData,
           [name]: value,
         }));
       };
@@ -22,11 +17,18 @@ export default function ShoeSearch () {
       const handleSubmit = (event) => {
         event.preventDefault();
         if (footData.leftFoot && footData.rightFoot) {
-            console.log(footData);
+            setFootData(pastData => ({
+                ...pastData, 
+                soleCM: (parseFloat(footData.leftFoot) + parseFloat(footData.rightFoot)) / 2
+            }))
         } else {
             console.log("Please fill both input fields");
         }
       };
+
+      useEffect(() => {
+        fetch('')
+    }, [footData.soleCM]);
 
 
     return (
