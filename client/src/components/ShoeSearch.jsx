@@ -26,9 +26,26 @@ export default function ShoeSearch () {
         }
       };
 
-      useEffect(() => {
-        fetch('')
-    }, [footData.soleCM]);
+        const url = 'http://localhost:3001/api/shoes';
+        const data = { soleCM: footData.soleCM };
+
+        fetch(url, {
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(data => {
+        // handle the response data
+        console.log(data);
+        })
+        .catch(error => {
+        // handle the error
+        console.error('Error:', error);
+        });
+
 
 
     return (
