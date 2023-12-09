@@ -1,9 +1,9 @@
 const { Shoe } = require("../models");
 
 module.exports = {
-  async getShoes(req, res) {
+  async getShoes({ body }, res) {
     try {
-      const { soleCM } = req.body;
+      const { soleCM } = body;
 
       const searchCriteria = { soleCM };
 
