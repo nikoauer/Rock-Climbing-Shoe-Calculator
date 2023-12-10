@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { sendSize } from "../../utils/API";
-import {Container, Col, Form, Button} from 'react-bootstrap'
-import Results  from './Results'
-
+import Results from "./Results";
 
 export default function ShoeSearch() {
   const [footData, setFootData] = useState({
@@ -51,33 +49,29 @@ export default function ShoeSearch() {
   }, [footData.leftFoot, footData.rightFoot, footData.soleCM]);
 
   return (
-    <>
-      <Container className="d-flex justify-content-center">
-        <Col sm={{ span: 12, offset: 0 }}>
-          <Form onSubmit={handleSubmit}>
-            <Form.Group className="">
-              <Form.Control
-                type="number"
-                name="leftFoot"
-                value={footData.leftFoot}
-                onChange={handleChange}
-              />
-            </Form.Group>
-            <Form.Group className="">
-              <Form.Control
-                type="number"
-                name="rightFoot"
-                value={footData.rightFoot}
-                onChange={handleChange}
-              />
-            </Form.Group>
-            <Form.Group className="">
-              <Button type="submit">Submit</Button>
-            </Form.Group>
-          </Form>
-        </Col>
-      </Container>
-         <Results shoeResults={shoeResults} />
+    <>  
+    <div className="container">
+        <div className="row">
+            <div className="col d-flex  justify-content-center">
+            <form onSubmit={handleSubmit}>
+                <input
+                  type="number"
+                  name="leftFoot"
+                  value={footData.leftFoot}
+                  onChange={handleChange}
+                />
+                <input
+                  type="number"
+                  name="rightFoot"
+                  value={footData.rightFoot}
+                  onChange={handleChange}
+                />
+                <button type="submit" className="btn btn-primary">Submit</button>
+            </form>
+            </div>
+        </div>
+    </div>
+      <Results shoeResults={shoeResults} />
     </>
   );
 }
