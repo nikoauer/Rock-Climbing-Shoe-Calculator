@@ -11,6 +11,8 @@ export default function ShoeSearch() {
 
   const [shoeResults, setShoeResults] = useState([]);
 
+  const [searchPerformed, setsearchPerformed] = useState(false);
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFootData((pastFootData) => ({
@@ -41,6 +43,7 @@ export default function ShoeSearch() {
             throw new Error("Something went wrong!");
           }
           setShoeResults(shoeInfo);
+          setsearchPerformed(true);
         } catch (error) {
           console.error(error);
         }
@@ -62,7 +65,7 @@ export default function ShoeSearch() {
                 value={footData.leftFoot}
                 onChange={handleChange}
               />
-              <label htmlFor="rightFoot">Left Foot Measurement</label>
+              <label htmlFor="rightFoot">Right Foot Measurement</label>
               <input
                 type="number"
                 name="rightFoot"
@@ -79,7 +82,7 @@ export default function ShoeSearch() {
         </div>
       </div>
             </div>
-      <Results shoeResults={shoeResults} />
+      <Results shoeResults={shoeResults} searchPerformed={searchPerformed}/>
     </>
   );
 }
