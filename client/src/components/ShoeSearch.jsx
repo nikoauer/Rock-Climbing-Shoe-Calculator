@@ -49,28 +49,36 @@ export default function ShoeSearch() {
   }, [footData.leftFoot, footData.rightFoot, footData.soleCM]);
 
   return (
-    <>  
-    <div className="container">
+    <>
+    <div id="backgroundBlock">
+      <div className="container" id="form">
         <div className="row">
-            <div className="col d-flex  justify-content-center">
-            <form onSubmit={handleSubmit}>
-                <input
-                  type="number"
-                  name="leftFoot"
-                  value={footData.leftFoot}
-                  onChange={handleChange}
-                />
-                <input
-                  type="number"
-                  name="rightFoot"
-                  value={footData.rightFoot}
-                  onChange={handleChange}
-                />
-                <button type="submit" className="btn btn-primary">Submit</button>
+          <div className="col d-flex  justify-content-center">
+            <form onSubmit={handleSubmit} className="vstack gap-2">
+              <label htmlFor="leftFoot">Left Foot Measurement</label>
+              <input
+                type="number"
+                name="leftFoot"
+                value={footData.leftFoot}
+                onChange={handleChange}
+              />
+              <label htmlFor="rightFoot">Left Foot Measurement</label>
+              <input
+                type="number"
+                name="rightFoot"
+                value={footData.rightFoot}
+                onChange={handleChange}
+              />
+              <div className="text-center">
+              <button type="submit" id="submitButton">
+                Submit
+              </button>
+              </div>
             </form>
-            </div>
+          </div>
         </div>
-    </div>
+      </div>
+            </div>
       <Results shoeResults={shoeResults} />
     </>
   );
