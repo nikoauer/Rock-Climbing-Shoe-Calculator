@@ -13,6 +13,8 @@ export default function ShoeSearch() {
 
   const [searchPerformed, setsearchPerformed] = useState(false);
 
+  const [reset, setReset] = useState(false)
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFootData((pastFootData) => ({
@@ -30,6 +32,17 @@ export default function ShoeSearch() {
           (parseFloat(footData.leftFoot) + parseFloat(footData.rightFoot)) / 2,
       }));
     }
+  };
+
+  const handleReset = () => {
+    setFootData({
+      leftFoot: "",
+      rightFoot: "",
+      soleCM: "",
+    });
+    setShoeResults([]);
+    setsearchPerformed(false);
+    setReset(true);
   };
 
   useEffect(() => {
@@ -50,6 +63,12 @@ export default function ShoeSearch() {
       })();
     }
   }, [footData.leftFoot, footData.rightFoot, footData.soleCM]);
+
+  useEffect(() => {
+    if (reset) {
+      setReset(false);
+    }
+  }, [reset]);
 
   return (
     <>
@@ -76,6 +95,12 @@ export default function ShoeSearch() {
               <button type="submit" id="submitButton">
                 Submit
               </button>
+              </div>
+              <div className="text-center">
+              {searchPerformed === true ?
+              <button type="button" onClick={handleReset} id="resetButton">
+                    Reset
+                  </button> : null}
               </div>
             </form>
           </div>

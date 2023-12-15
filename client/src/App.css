@@ -147,3 +147,32 @@
     transform: translateY(5px);
     transition: 100ms;
   }
+
+  #resetButton {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--aqua);
+    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-size: 15px;
+    transition: all 0.5s ease;
+    width: 220px;
+  }
+
+  #resetButton:hover {
+    letter-spacing: 3px;
+    background-color: var(--aqua);
+    box-shadow: var(--teal) 0px 7px 10px 0px;
+  }
+
+#resetButton:active {
+    letter-spacing: 3px;
+    background-color: var(--teal);
+    box-shadow: var(--teal) 0px 0px 0px 0px;
+    transform: translateY(5px);
+    transition: 100ms;
+  }
