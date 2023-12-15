@@ -14,11 +14,23 @@ export default function Results ({ shoeResults, searchPerformed }) {
                     <p>US Womens: {shoe.USWomens}</p>
                     <p>EU Size: {shoe.EUSize}</p>
                     <p>UK Size: {shoe.UKSize}</p>
-                    <p>Sole Size (centermeters):{shoe.soleCM}</p>
+                    <p>Sole Size (centermeters): {shoe.soleCM}</p>
                     <p>Toe box: {shoe.toeBox}</p>
                     <p>Shoe width: {shoe.Width}</p>
                     <div className="row justify-content-center">
-                    <button id="purchaseButton"><a id="anchor" href={shoe.productUrl} target="_blank" rel="noopener noreferrer">Buy Here</a></button>
+                    <button id="purchaseButton"><a id="anchor" href={shoe.productUrl} target="_blank" rel="noopener noreferrer">Shop Now</a></button>
+                    </div>
+                    <div className="row justify-content-center"> 
+                    <button id="feedbackButton">
+                      <a
+                        id="anchor"
+                        href=""
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Provide Feedback
+                      </a>
+                    </button>
                     </div>
                   </div>
               </div>
