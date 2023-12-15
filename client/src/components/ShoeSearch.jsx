@@ -82,7 +82,7 @@ export default function ShoeSearch() {
         </div>
       </div>
             </div>
-      <Results shoeResults={shoeResults} searchPerformed={searchPerformed}/>
+      <Results shoeResults={shoeResults} searchPerformed={searchPerformed} footData={footData}/>
     </>
   );
 }

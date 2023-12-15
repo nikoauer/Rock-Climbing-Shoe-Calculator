@@ -1,4 +1,19 @@
-export default function Results ({ shoeResults, searchPerformed }) {
+export default function Results ({ shoeResults, searchPerformed, footData }) {
+
+    const getFeedbackFormLink = (shoe) => {
+      // Replace 'YOUR_FORM_ID' with the actual ID of your Google Form
+      const formId = '1FAIpQLSe6GIDD2xVgiblGrMyJJveKd8Q48DaNWWrOskQfqhP7kE3Uhg';
+     
+      // Replace 'LEFT_FOOT' and 'RIGHT_FOOT' with the actual field names in your Google Form
+      const leftFootFieldName = 'entry.2125236691';
+      const rightFootFieldName = 'entry.1055003517';
+     
+      // Create the pre-filled form link with left foot and right foot measurements
+      const feedbackLink = `https://docs.google.com/forms/d/e/${formId}/viewform?usp=pp_url&${leftFootFieldName}=${footData.leftFoot}&${rightFootFieldName}=${footData.rightFoot}`;
+     
+      return feedbackLink;
+     };
+
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -24,7 +39,7 @@ export default function Results ({ shoeResults, searchPerformed }) {
                     <button id="feedbackButton">
                       <a
                         id="anchor"
-                        href=""
+                        href={getFeedbackFormLink(shoe)}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
