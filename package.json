@@ -1,7 +1,7 @@
 {
   "name": "shoecalculator",
   "version": "1.0.0",
-  "description": "",
+  "description": "Rock Climbing shoe calculator",
   "main": "server/server.js",
   "Important for MERN Setup": {
     "line-10": "We use this top-level package.json file to define scripts we can run to control our entire application from the same CLI location",
