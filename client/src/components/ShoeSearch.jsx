@@ -76,7 +76,7 @@ export default function ShoeSearch() {
         <div className="container" id="form">
           <div className="row">
             <div className="col-md-6 d-flex justify-content-center">
-              <form onSubmit={handleSubmit} className="vstack gap-2">
+              <form onSubmit={handleSubmit} className="vstack gap-1">
                 <label htmlFor="leftFoot" className="text-center">Left Foot Measurement</label>
                 <input
                 placeholder="Input in cm"
@@ -88,7 +88,7 @@ export default function ShoeSearch() {
               </form>
             </div>
             <div className="col-md-6 d-flex justify-content-center">
-              <form onSubmit={handleSubmit} className="vstack gap-2">
+              <form onSubmit={handleSubmit} className="vstack gap-1">
                 <label htmlFor="rightFoot" className="text-center">Right Foot Measurement</label>
                 <input
                 placeholder="Input in cm"

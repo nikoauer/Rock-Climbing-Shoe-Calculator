@@ -91,13 +91,13 @@
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    background-color: var(--aqua);
+    background-color: var(--teal);
     box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
     font-size: 15px;
     transition: all 0.5s ease;
-    width: 150px;
+    width: 160px;
 }
 
 #purchaseButton:hover {
@@ -125,26 +125,26 @@
     border-radius: 8px;
     border: none;
     cursor: pointer;
+    letter-spacing: 1px;
     background-color: var(--aqua);
     box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
-    letter-spacing: 1.5px;
     text-transform: uppercase;
     font-size: 15px;
     transition: all 0.5s ease;
-    width: 150px;
+    width: 160px;
 }
 
 #feedbackButton:hover {
-    letter-spacing: 3px;
-    background-color: var(--aqua);
+    letter-spacing: 2px;
+    background-color: var(--teal);
     box-shadow: var(--teal) 0px 7px 10px 0px;
   }
 
 #feedbackButton:active {
     letter-spacing: 3px;
-    background-color: var(--teal);
-    box-shadow: var(--teal) 0px 0px 0px 0px;
-    transform: translateY(5px);
+    background-color: var(--aqua);
+    box-shadow: var(--aqua) 0px 0px 0px 0px;
+    transform: translateY(40px);
     transition: 100ms;
   }
 
@@ -154,7 +154,7 @@
     border-radius: 8px;
     border: none;
     cursor: pointer;
-    background-color: var(--aqua);
+    background-color: rgba(105, 105, 105, 0.582);
     box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -165,15 +165,25 @@
 
   #resetButton:hover {
     letter-spacing: 3px;
-    background-color: var(--aqua);
-    box-shadow: var(--teal) 0px 7px 10px 0px;
+    background-color: rgb(96, 96, 96);
+    box-shadow: rgb(55, 55, 55) 0px 7px 10px 0px;
+    color: white;
   }
 
 #resetButton:active {
     letter-spacing: 3px;
-    background-color: var(--teal);
-    box-shadow: var(--teal) 0px 0px 0px 0px;
+    background-color: rgb(63, 63, 63);
+    box-shadow: rgb(94, 94, 94) 0px 0px 0px 0px;
     transform: translateY(5px);
     transition: 100ms;
   }
 
+  #tableData tr:nth-child(odd){background-color: rgb(217, 217, 217)}
+  
+  #tableData {
+    width: 100%;
+  }
+
+  .data {
+    text-align: center;
+  }

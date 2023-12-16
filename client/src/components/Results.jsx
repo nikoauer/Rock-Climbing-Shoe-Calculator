@@ -21,17 +21,41 @@ export default function Results ({ shoeResults, searchPerformed, footData }) {
           shoeResults.map((shoe) => (
             <div key={shoe._id} className="col-md-5" id="cards">
               <div className="mb-4">
-                  <h2>{shoe.Name}</h2>
-                  <p>{shoe.Model}</p>
+                  <h4>{shoe.Name} {shoe.Model}</h4>
                   <img src={shoe.imageUrl} alt={shoe.Name} className="img-fluid" />
+                    <table id="tableData">
+                      <tbody>
+                        <tr>
+                          <td>US Mens</td>
+                          <td className="data">{shoe.USMens}</td>
+                        </tr>
+                        <tr>
+                          <td>US Womens</td>
+                          <td className="data">{shoe.USWomens}</td>
+                        </tr>
+                        <tr>
+                          <td>EU Size</td>
+                          <td className="data">{shoe.EUSize}</td>
+                        </tr>
+                        <tr>
+                          <td>UK Size</td>
+                          <td className="data">{shoe.UKSize}</td>
+                        </tr>
+                        <tr>
+                          <td>Sole Size (cm)</td>
+                          <td className="data">{shoe.soleCM}</td>
+                        </tr>
+                        <tr>
+                          <td>Toe box</td>
+                          <td className="data">{shoe.toeBox}</td>
+                        </tr>
+                        <tr>
+                          <td>Shoe width</td>
+                          <td className="data">{shoe.Width}</td>
+                        </tr>
+                      </tbody>
+                    </table>
                   <div className="shoe-details">
-                    <p>US Mens: {shoe.USMens}</p>
-                    <p>US Womens: {shoe.USWomens}</p>
-                    <p>EU Size: {shoe.EUSize}</p>
-                    <p>UK Size: {shoe.UKSize}</p>
-                    <p>Sole Size (centermeters): {shoe.soleCM}</p>
-                    <p>Toe box: {shoe.toeBox}</p>
-                    <p>Shoe width: {shoe.Width}</p>
                     <div className="row justify-content-center">
                     <button id="purchaseButton"><a id="anchor" href={shoe.productUrl} target="_blank" rel="noopener noreferrer">Shop Now</a></button>
                     </div>
@@ -43,7 +67,7 @@ export default function Results ({ shoeResults, searchPerformed, footData }) {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Provide Feedback
+                        Give Feedback
                       </a>
                     </button>
                     </div>
