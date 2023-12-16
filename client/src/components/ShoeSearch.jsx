@@ -100,6 +100,7 @@ export default function ShoeSearch() {
               </form>
             </div>
           </div>
+          <form onSubmit={handleSubmit}>
           <div className="row">
             <div className="col-12 text-center">
               <button type="submit" id="submitButton">
@@ -107,6 +108,7 @@ export default function ShoeSearch() {
               </button>
             </div>
           </div>
+          </form>
           <div className="row">
             <div className="col-12 text-center">
               {searchPerformed && (
