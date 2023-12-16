@@ -72,42 +72,54 @@ export default function ShoeSearch() {
 
   return (
     <>
-    <div id="backgroundBlock">
-      <div className="container" id="form">
-        <div className="row">
-          <div className="col d-flex  justify-content-center">
-            <form onSubmit={handleSubmit} className="vstack gap-2">
-              <label htmlFor="leftFoot">Left Foot Measurement</label>
-              <input
-                type="number"
-                name="leftFoot"
-                value={footData.leftFoot}
-                onChange={handleChange}
-              />
-              <label htmlFor="rightFoot">Right Foot Measurement</label>
-              <input
-                type="number"
-                name="rightFoot"
-                value={footData.rightFoot}
-                onChange={handleChange}
-              />
-              <div className="text-center">
+      <div id="backgroundBlock">
+        <div className="container" id="form">
+          <div className="row">
+            <div className="col-md-6 d-flex justify-content-center">
+              <form onSubmit={handleSubmit} className="vstack gap-2">
+                <label htmlFor="leftFoot" className="text-center">Left Foot Measurement</label>
+                <input
+                placeholder="Input in cm"
+                  type="number"
+                  name="leftFoot"
+                  value={footData.leftFoot}
+                  onChange={handleChange}
+                />
+              </form>
+            </div>
+            <div className="col-md-6 d-flex justify-content-center">
+              <form onSubmit={handleSubmit} className="vstack gap-2">
+                <label htmlFor="rightFoot" className="text-center">Right Foot Measurement</label>
+                <input
+                placeholder="Input in cm"
+                  type="number"
+                  name="rightFoot"
+                  value={footData.rightFoot}
+                  onChange={handleChange}
+                />
+              </form>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12 text-center">
               <button type="submit" id="submitButton">
                 Submit
               </button>
-              </div>
-              <div className="text-center">
-              {searchPerformed === true ?
-              <button type="button" onClick={handleReset} id="resetButton">
-                    Reset
-                  </button> : null}
-              </div>
-            </form>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-12 text-center">
+              {searchPerformed && (
+                <button type="button" onClick={handleReset} id="resetButton">
+                  Reset
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
-            </div>
       <Results shoeResults={shoeResults} searchPerformed={searchPerformed} footData={footData}/>
     </>
   );
+  
 }
