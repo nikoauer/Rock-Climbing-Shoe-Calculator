@@ -141,10 +141,10 @@
   }
 
 #feedbackButton:active {
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     background-color: var(--aqua);
     box-shadow: var(--aqua) 0px 0px 0px 0px;
-    transform: translateY(40px);
+    transform: translateY(5px);
     transition: 100ms;
   }
 
