@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { sendSize } from "../../utils/API";
+// import { sendSize } from "../../utils/API";
 import Results from "./Results";
 
 export default function ShoeSearch() {
@@ -45,16 +45,26 @@ export default function ShoeSearch() {
     setReset(true);
   };
 
+  const url = "https://shoe-calculator-backend.onrender.com/api/shoes"
+
   useEffect(() => {
     if (footData.leftFoot && footData.rightFoot && footData.soleCM) {
       (async () => {
         try {
           const data = { soleCM: footData.soleCM };
-          const response = await sendSize(data);
+          const response = await fetch(url, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(data),
+          });
           const shoeInfo = await response.json();
+  
           if (!response.ok) {
             throw new Error("Something went wrong!");
           }
+  
           setShoeResults(shoeInfo);
           setsearchPerformed(true);
         } catch (error) {
@@ -63,6 +73,7 @@ export default function ShoeSearch() {
       })();
     }
   }, [footData.leftFoot, footData.rightFoot, footData.soleCM]);
+  
 
   useEffect(() => {
     if (reset) {
