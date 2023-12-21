@@ -91,7 +91,7 @@ export default function ShoeSearch() {
         <div className="container" id="form">
           <div className="row">
             <div className="col-md-6 d-flex justify-content-center">
-              <form onSubmit={handleSubmit} className="vstack gap-1 d-flex justify-content-center">
+              <form onSubmit={handleSubmit} className="vstack gap-1">
                 <label htmlFor="leftFoot" className="text-center">
                   Left Foot Measurement
                 </label>
