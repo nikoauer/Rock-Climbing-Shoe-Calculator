@@ -21,7 +21,7 @@
     text-transform: uppercase;
     font-size: 15px;
     transition: all 0.5s ease;
-    width: 220px;
+    width: 170px;
 }
 
 #submitButton:hover {
@@ -55,6 +55,7 @@
   input {
     height: 44px;
     background-color: #05060f1a;
+    width: 100%;
     border-radius: .5rem;
     padding: 0 1rem;
     border: 2px solid transparent;
@@ -160,7 +161,7 @@
     text-transform: uppercase;
     font-size: 15px;
     transition: all 0.5s ease;
-    width: 220px;
+    width: 170px;
   }
 
   #resetButton:hover {
@@ -186,4 +187,8 @@
 
   .data {
     text-align: center;
+  }
+
+  #Loader {
+    padding-top: 25px;
   }

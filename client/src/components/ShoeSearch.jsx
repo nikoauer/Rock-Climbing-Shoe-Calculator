@@ -13,7 +13,9 @@ export default function ShoeSearch() {
 
   const [searchPerformed, setsearchPerformed] = useState(false);
 
-  const [reset, setReset] = useState(false)
+  const [reset, setReset] = useState(false);
+
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -45,12 +47,13 @@ export default function ShoeSearch() {
     setReset(true);
   };
 
-  const url = "https://shoe-calculator-backend.onrender.com/api/shoes"
+  const url = "https://shoe-calculator-backend.onrender.com/api/shoes";
 
   useEffect(() => {
     if (footData.leftFoot && footData.rightFoot && footData.soleCM) {
       (async () => {
         try {
+          setLoading(true);
           const data = { soleCM: footData.soleCM };
           const response = await fetch(url, {
             method: "POST",
@@ -60,20 +63,21 @@ export default function ShoeSearch() {
             body: JSON.stringify(data),
           });
           const shoeInfo = await response.json();
-  
+
           if (!response.ok) {
             throw new Error("Something went wrong!");
           }
-  
+
           setShoeResults(shoeInfo);
           setsearchPerformed(true);
         } catch (error) {
           console.error(error);
+        } finally {
+          setLoading(false);
         }
       })();
     }
   }, [footData.leftFoot, footData.rightFoot, footData.soleCM]);
-  
 
   useEffect(() => {
     if (reset) {
@@ -87,10 +91,12 @@ export default function ShoeSearch() {
         <div className="container" id="form">
           <div className="row">
             <div className="col-md-6 d-flex justify-content-center">
-              <form onSubmit={handleSubmit} className="vstack gap-1">
-                <label htmlFor="leftFoot" className="text-center">Left Foot Measurement</label>
+              <form onSubmit={handleSubmit} className="vstack gap-1 d-flex justify-content-center">
+                <label htmlFor="leftFoot" className="text-center">
+                  Left Foot Measurement
+                </label>
                 <input
-                placeholder="Input in cm"
+                  placeholder="Input in cm"
                   type="number"
                   name="leftFoot"
                   value={footData.leftFoot}
@@ -100,9 +106,11 @@ export default function ShoeSearch() {
             </div>
             <div className="col-md-6 d-flex justify-content-center">
               <form onSubmit={handleSubmit} className="vstack gap-1">
-                <label htmlFor="rightFoot" className="text-center">Right Foot Measurement</label>
+                <label htmlFor="rightFoot" className="text-center">
+                  Right Foot Measurement
+                </label>
                 <input
-                placeholder="Input in cm"
+                  placeholder="Input in cm"
                   type="number"
                   name="rightFoot"
                   value={footData.rightFoot}
@@ -112,16 +120,16 @@ export default function ShoeSearch() {
             </div>
           </div>
           <form onSubmit={handleSubmit}>
-          <div className="row">
-            <div className="col-12 text-center">
-              <button type="submit" id="submitButton">
-                Submit
-              </button>
+            <div className="row ">
+              <div className="col-12 text-center d-flex justify-content-center">
+                <button type="submit" id="submitButton">
+                  Submit
+                </button>
+              </div>
             </div>
-          </div>
           </form>
           <div className="row">
-            <div className="col-12 text-center">
+            <div className="col-12 text-center d-flex justify-content-center">
               {searchPerformed && (
                 <button type="button" onClick={handleReset} id="resetButton">
                   Reset
@@ -131,8 +139,18 @@ export default function ShoeSearch() {
           </div>
         </div>
       </div>
-      <Results shoeResults={shoeResults} searchPerformed={searchPerformed} footData={footData}/>
+      {loading && (
+        <div className="d-flex justify-content-center" id="Loader">
+          <div className="spinner-border spinner-border-lg" role="status">
+            <span className="sr-only"></span>
+          </div>
+        </div>
+      )}
+      <Results
+        shoeResults={shoeResults}
+        searchPerformed={searchPerformed}
+        footData={footData}
+      />
     </>
   );
-  
 }
