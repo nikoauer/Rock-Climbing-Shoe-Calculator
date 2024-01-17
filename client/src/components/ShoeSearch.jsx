@@ -96,6 +96,7 @@ export default function ShoeSearch() {
                   Left Foot Measurement
                 </label>
                 <input
+                  id="leftFoot"
                   placeholder="Input in cm"
                   type="number"
                   name="leftFoot"
@@ -110,6 +111,7 @@ export default function ShoeSearch() {
                   Right Foot Measurement
                 </label>
                 <input
+                  id="rightFoot"
                   placeholder="Input in cm"
                   type="number"
                   name="rightFoot"
